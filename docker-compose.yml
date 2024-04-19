@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0
+    restart: no
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: genius
+      MYSQL_USER: jonabirde
+      MYSQL_PASSWORD: 123456
+    volumes:
+      - genius-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  genius-data:

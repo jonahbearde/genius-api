@@ -15,11 +15,6 @@ import { UpdateArtistDto } from './dto/update-artist.dto'
 export class ArtistsController {
   constructor(private readonly artistsService: ArtistsService) {}
 
-  @Post()
-  create(@Body() createArtistDto: CreateArtistDto) {
-    return this.artistsService.create(createArtistDto)
-  }
-
   @Get()
   findAll() {
     return this.artistsService.findAll()
@@ -28,6 +23,11 @@ export class ArtistsController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.artistsService.findOne(+id)
+  }
+
+  @Post()
+  create(@Body() createArtistDto: CreateArtistDto) {
+    return this.artistsService.create(createArtistDto)
   }
 
   @Patch(':id')
